@@ -3637,6 +3637,7 @@ GameObject:
   - component: {fileID: 2133289585}
   - component: {fileID: 2133289584}
   - component: {fileID: 2133289583}
+  - component: {fileID: 2133289586}
   m_Layer: 0
   m_Name: Trophy
   m_TagString: Pick Up
@@ -3711,3 +3712,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2133289581}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2133289586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2133289581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cbce89d47254f2fb4950d5e4f5eee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
