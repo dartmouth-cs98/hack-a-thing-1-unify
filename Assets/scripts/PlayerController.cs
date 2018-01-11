@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour {
 	public Text winText;
 	public float jump_height;
 	private float jump;
+	private float yvelocity;
+	public Text GameOver;
+	private bool Loss;
 
 
 
@@ -22,6 +25,9 @@ public class PlayerController : MonoBehaviour {
 		count = 0;
 		SetCountText ();
 		winText.text = "";
+		GameOver.text = "";
+		Loss = false;
+
 
 	
 	}
@@ -30,7 +36,8 @@ public class PlayerController : MonoBehaviour {
 		float moveHorizantal = Input.GetAxis ("Horizontal");
 		float MoveVertical = Input.GetAxis ("Vertical");
 		bool space_down = Input.GetKeyDown ("space");
-		if (space_down == true) {
+		yvelocity = rb.velocity.y;
+		if (space_down == true && yvelocity == 0 ) {
 			jump = jump_height;
 		} else {
 			jump = 0.0f;
@@ -44,23 +51,30 @@ public class PlayerController : MonoBehaviour {
 
 	
 	}
+
 	void OnTriggerEnter(Collider other)
 	{
+		if (other.gameObject.CompareTag ("o"))
+		{
+			GameOver.text = "GAME OVER";
+		}
 		if (other.gameObject.CompareTag ("Pick Up"))
 		{
 			other.gameObject.SetActive (false);
 			count = count + 1;
 			SetCountText ();
 		}
+
+
 	}
 
 
 	void SetCountText ()
 	{
 		countText.text = "Count: " + count.ToString ();
-		if (count >= 11) 
+		if (count >= 18) 
 		{
-			winText.text = "You win!!!";
+			winText.text = "YOU WIN!!!";
 		}
 	}
 
