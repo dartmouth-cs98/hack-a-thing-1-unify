@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour {
 	private int count;
 	public Text countText;
 	public Text winText;
+	public float jump_height;
+	private float jump;
+
+
 
 	void Start ()
 	{
@@ -25,11 +29,18 @@ public class PlayerController : MonoBehaviour {
 	{
 		float moveHorizantal = Input.GetAxis ("Horizontal");
 		float MoveVertical = Input.GetAxis ("Vertical");
+		bool space_down = Input.GetKeyDown ("space");
+		if (space_down == true) {
+			jump = jump_height;
+		} else {
+			jump = 0.0f;
+		}
 
-		Vector3 movement = new Vector3 (moveHorizantal, 0.0f, MoveVertical);
+		print (jump);
+		Vector3 movement = new Vector3 (moveHorizantal, jump, MoveVertical);
 
 		rb.AddForce (movement * speed);
-
+		jump = 0;
 
 	
 	}
